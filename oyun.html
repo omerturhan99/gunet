@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelime Tahmin Oyunu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kelime Tahmin Oyunu</h1>
+    <p>Tahmin etmek istediğiniz kelimeyi girin:</p>
+    <input type="text" id="guessInput">
+    <button onclick="checkGuess()">Tahmin Et</button>
+    <p id="message"></p>
+
+    <script>
+        // Rastgele bir kelime seçme
+        const words = ['elma', 'armut', 'kiraz', 'portakal', 'muz'];
+        const randomWord = words[Math.floor(Math.random() * words.length)];
+
+        // Kullanıcının tahminini kontrol etme
+        function checkGuess() {
+            const guess = document.getElementById('guessInput').value.toLowerCase();
+            const message = document.getElementById('message');
+
+            if (guess === randomWord) {
+                message.textContent = 'Tebrikler! Doğru tahmin ettiniz!';
+            } else {
+                message.textContent = 'Maalesef yanlış tahmin ettiniz. Tekrar deneyin.';
+            }
+        }
+    </script>
+</body>
+</html>
